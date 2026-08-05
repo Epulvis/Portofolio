@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import os
+import base64
 
 # Konfigurasi Halaman (Wide layout penting untuk Bento Box)
 st.set_page_config(
@@ -52,38 +53,81 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+def get_img_as_base64(file_path):
+    with open(file_path, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
 # ==========================================
 # BENTO GRID 1: Profil & Intro (Atas)
 # ==========================================
-st.markdown("""
-<div style="padding: 30px 10px 40px 10px;">
-    <p style="color: #A78BFA; font-size: 1.2rem; font-weight: 600; margin-bottom: 0px;">
-        Halo Semua 👋, Saya
-    </p>
-    <h1 style="font-size: 4rem; font-weight: 800; line-height: 1.1; margin-top: 5px; margin-bottom: 10px; color: #F8FAFC;">
-        Mochammad Syaifuddin Zuhri
-    </h1>
-    <p style="font-size: 1.4rem; font-weight: 400; color: #9CA3AF; margin-top: 0px; margin-bottom: 25px;">
-        Mahasiswa Aktif & Front-End Developer | <span style="text-decoration: underline; color: #E5E7EB;">Mencari Peluang Magang</span>
-    </p>
-    <p style="font-size: 1.1rem; color: #D1D5DB; max-width: 700px; line-height: 1.6; margin-bottom: 35px;">
-        Portofolio ini menampilkan proyek dan kontribusi saya dalam menerjemahkan rancangan desain UI/UX menjadi antarmuka website yang responsif, berkinerja tinggi, dan ramah pengguna.
-    </p>
-    <a href="mailto:emailanda@domain.com" style="
-        display: inline-block; 
-        background-color: #7C3AED; 
-        color: #FFFFFF; 
-        padding: 12px 30px; 
-        border-radius: 8px; 
-        text-decoration: none; 
-        font-weight: 600; 
-        font-size: 1.05rem;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#6D28D9'" onmouseout="this.style.backgroundColor='#7C3AED'">
-        Hubungi Saya
-    </a>
-</div>
-""", unsafe_allow_html=True)
+col_text, col_img = st.columns([1.8, 1.2])
+
+with col_text:
+    st.markdown("""
+    <div style="padding: 20px 10px 40px 10px;">
+        <p style="color: #A78BFA; font-size: 1.2rem; font-weight: 600; margin-bottom: 0px;">
+            Halo Semua 👋, Saya
+        </p>
+        <h1 style="font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-top: 5px; margin-bottom: 10px; color: #F8FAFC;">
+            Mochammad Syaifuddin Zuhri
+        </h1>
+        <p style="font-size: 1.3rem; font-weight: 400; color: #9CA3AF; margin-top: 0px; margin-bottom: 25px;">
+            Mahasiswa Aktif & Front-End Developer | <span style="text-decoration: underline; color: #E5E7EB;">Mencari Peluang Magang</span>
+        </p>
+        <p style="font-size: 1.1rem; color: #D1D5DB; max-width: 90%; line-height: 1.6; margin-bottom: 35px;">
+            Portofolio ini menampilkan proyek dan kontribusi saya dalam menerjemahkan rancangan desain UI/UX menjadi antarmuka website yang responsif, berkinerja tinggi, dan ramah pengguna.
+        </p>
+        <a href="mailto:emailanda@domain.com" style="
+            display: inline-block; 
+            background-color: #7C3AED; 
+            color: #FFFFFF; 
+            padding: 12px 30px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.05rem;
+            transition: background-color 0.3s ease;
+        " onmouseover="this.style.backgroundColor='#6D28D9'" onmouseout="this.style.backgroundColor='#7C3AED'">
+            Hubungi Saya
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col_img:
+    profile_img_path = "assets/profile.jpg"
+    
+    if os.path.exists(profile_img_path):
+        img_base64 = get_img_as_base64(profile_img_path)
+        
+        # HTML & CSS untuk membuat Blob Shape dengan animasi
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding-top: 10px;">
+            <img src="data:image/png;base64,{img_base64}" style="
+                width: 100%;
+                max-width: 320px;
+                height: 320px;
+                object-fit: cover;
+                box-shadow: 0 15px 35px rgba(124, 58, 237, 0.15);
+                border: 2px solid #374151;
+                /* Ini yang membuat bentuknya jadi tidak beraturan (Blob) */
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; 
+                animation: morph 8s ease-in-out infinite;
+            ">
+        </div>
+        
+        <style>
+            /* Keyframes ini akan membuat bentuk oval-nya bergerak mengalir layaknya cairan */
+            @keyframes morph {{
+                0% {{ border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }}
+                50% {{ border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }}
+                100% {{ border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }}
+            }}
+        </style>
+        """, unsafe_allow_html=True)
+    else:
+        # Fallback jika gambar belum ada
+        st.info("💡 Tambahkan foto profil Anda dengan nama 'profile.png' di folder 'assets/' untuk melihat efeknya.")
 
 # ==========================================
 # BENTO GRID 2: Tech Stack (Tengah - 3 Kolom)
