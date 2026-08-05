@@ -59,18 +59,43 @@ st.markdown("---")
 # ==========================================
 # BENTO GRID 1: Profil & Intro (Atas)
 # ==========================================
-with st.container(border=True):
-    col_prof1, col_prof2 = st.columns([2, 1])
-    with col_prof1:
-        st.subheader("👋 Halo!")
-        st.write("""
-        Saya berfokus pada pembuatan antarmuka modern, responsif, dan interaktif. 
-        Berpengalaman dalam mengelola seluruh siklus pengembangan perangkat lunak (SDLC) dari tahap desain UI/UX hingga deployment ke production.
-        """)
-    with col_prof2:
-        st.write("📍 **Lokasi:** Indonesia")
-        st.write("💼 **Status:** Open to Work")
-        st.write("🌐 **Fokus:** Web & Mobile App")
+col_hero, col_stats = st.columns([2.5, 1])
+
+with col_hero:
+    st.markdown("""
+    <div style="
+        background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        padding: 40px 35px;
+        border-radius: 20px;
+        color: white;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+        transition: transform 0.3s ease;
+    ">
+        <h1 style="color: white; margin-bottom: 5px; font-size: 2.8rem; font-weight: 800;">Hai! Saya Syaifuddin 👋</h1>
+        <h3 style="color: #E0E7FF; margin-top: 0; font-weight: 500; font-size: 1.4rem;">Front-End Web & Mobile Developer</h3>
+        <p style="margin-top: 15px; font-size: 1.1rem; line-height: 1.7; color: #F3F4F6;">
+            Saya bersemangat dalam menerjemahkan rancangan desain kolaboratif dari <b>Figma/FigJam</b> menjadi antarmuka yang <b>responsif</b> dan berkinerja tinggi. 
+            Terbiasa mengawal siklus SDLC dan siap berkolaborasi erat menjembatani visi antara tim UI/UX dan logika Back-End.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col_stats:
+    # Kotak Atas: Menyoroti Kualifikasi Utama (Mahasiswa Aktif)
+    with st.container(border=True):
+        st.markdown("<h4 style='text-align: center; margin-bottom: 0px; font-size: 1.1rem;'>🎓 Status Akademik</h4>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: #10B981; font-weight: 800; font-size: 1.3rem; margin-top: 5px; margin-bottom: 0;'>🟢 Mahasiswa Aktif</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-size: 0.85rem; margin-top: 0px; color: #6B7280;'>Mencari Peluang Magang</p>", unsafe_allow_html=True)
+
+    # Kotak Bawah: Quick Facts
+    with st.container(border=True):
+        st.markdown("📍 **Lokasi:** Indonesia")
+        st.markdown("🤝 **Kolaborasi:** UI/UX & Backend")
+        st.markdown("⚡ **Fokus:** *Responsive Web Design*")
 
 # ==========================================
 # BENTO GRID 2: Tech Stack (Tengah - 3 Kolom)
@@ -84,12 +109,14 @@ with col_tech1:
         st.write("✨ **Next.js**")
         st.write("✨ **Vue.js**")
         st.write("✨ **Vite.js**")
+        st.write("✨ **Laravel**")
 
 with col_tech2:
     with st.container(border=True):
         st.markdown("#### 📱 Mobile & Backend")
         st.write("⚡ **Flutter**")
         st.write("⚡ **Laravel**")
+        st.write("⚡ **Express.js**")
         st.write("⚡ **REST API**")
 
 with col_tech3:
@@ -98,6 +125,7 @@ with col_tech3:
         st.write("🚀 **TypeScript**")
         st.write("🚀 **JavaScript**")
         st.write("🚀 **Dart**")
+        st.write("🚀 **Php**")
 
 # ==========================================
 # BENTO GRID 3: Proyek & Pengalaman (Bawah - 2 Kolom)
