@@ -113,12 +113,12 @@ with col_proj2:
         st.subheader("🤝 Platform Koperasi UMKM")
         
         # Render Gambar
-        img_path_2 = "assets/project2.png"
+        img_path_2 = "assets/project2.jpg"
         if os.path.exists(img_path_2):
             image2 = Image.open(img_path_2)
             st.image(image2, use_container_width=True)
         else:
-            st.info("[Tempat Gambar: Masukkan project2.png di folder assets/]")
+            st.info("[Tempat Gambar: Masukkan project2.jpg di folder assets/]")
 
         st.markdown("""
         **Siklus SDLC:**
