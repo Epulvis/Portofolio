@@ -9,20 +9,33 @@ st.set_page_config(
     layout="wide"
 )
 
-# Injeksi CSS Khusus untuk memperkuat gaya Bento Box & Menyeimbangkan Tinggi
+# Injeksi CSS Khusus untuk memperkuat gaya Bento Box & Flexbox
 st.markdown("""
 <style>
-    /* Mengubah border container Streamlit menjadi gaya Bento (sudut membulat & bayangan) */
+    /* 1. Ubah setiap kolom Streamlit menjadi Flexbox */
+    [data-testid="column"] {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    /* 2. Pastikan elemen pembungkus di dalam kolom juga merenggang */
+    [data-testid="column"] > div {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-grow: 1 !important;
+    }
+
+    /* 3. Gaya Bento Box dan paksaan agar mengisi tinggi penuh (flex-grow) */
     div[data-testid="stVerticalBlockBorderWrapper"] {
         border-radius: 20px !important;
         transition: all 0.3s ease;
         background-color: #ffffff; /* Ubah ke #1e1e1e jika ingin tema gelap */
-        height: 100% !important; /* Mendorong card agar tingginya 100% */
-    }
-    
-    /* Memaksa elemen di dalam kolom Streamlit untuk menyamakan tinggi maksimal */
-    div[data-testid="column"] > div {
-        height: 100% !important;
+        
+        /* Ini adalah kunci utamanya */
+        flex-grow: 1 !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
     }
 
     div[data-testid="stVerticalBlockBorderWrapper"]:hover {
@@ -30,6 +43,7 @@ st.markdown("""
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
         border-color: #d1d5db !important;
     }
+    
     /* Sembunyikan garis divider default agar lebih bersih */
     hr {
         margin: 1.5em 0;
