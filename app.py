@@ -107,8 +107,35 @@ with col_proj1:
         *   **Testing:** Melakukan pengujian tampilan (*Black Box Testing*) pada berbagai perangkat untuk memvalidasi fungsionalitas dan performa antarmuka.
         *   **Deployment:** Menggunakan **Git/GitHub** untuk manajemen kode, serta mengatur alur integrasi CI/CD untuk otomatisasi pengujian (*Automated Testing*).
         """)
+        # Injeksi CSS Khusus untuk memperkuat gaya Bento Box & Menyeimbangkan Tinggi
+        st.markdown("""
+        <style>
+            /* Mengubah border container Streamlit menjadi gaya Bento (sudut membulat & bayangan) */
+            div[data-testid="stVerticalBlockBorderWrapper"] {
+                border-radius: 20px !important;
+                transition: all 0.3s ease;
+                background-color: #ffffff; /* Ubah ke #1e1e1e jika ingin tema gelap */
+                height: 100% !important; /* Mendorong card agar tingginya 100% */
+            }
+            
+            /* Memaksa elemen di dalam kolom Streamlit untuk menyamakan tinggi maksimal */
+            div[data-testid="column"] > div {
+                height: 100% !important;
+            }
 
-# Proyek 2
+            div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+                border-color: #d1d5db !important;
+            }
+            /* Sembunyikan garis divider default agar lebih bersih */
+            hr {
+                margin: 1.5em 0;
+                border-color: transparent; 
+            }
+        </style>
+        """, unsafe_allow_html=True)
+
 # Proyek 2
 with col_proj2:
     with st.container(border=True):
@@ -131,6 +158,34 @@ with col_proj2:
         *   **Testing:** Menulis skrip *Automated Testing* dan melakukan pengujian tampilan secara komprehensif pada berbagai perangkat (mobile, tablet, desktop) untuk memastikan performa dan pengalaman pengguna tetap optimal.
         *   **Deployment:** Menggunakan **Git/GitHub** untuk kolaborasi dan *version control*, serta melakukan *deployment* mandiri ke server *production* di **Hostinger**.
         """)
+        # Injeksi CSS Khusus untuk memperkuat gaya Bento Box & Menyeimbangkan Tinggi
+        st.markdown("""
+        <style>
+            /* Mengubah border container Streamlit menjadi gaya Bento (sudut membulat & bayangan) */
+            div[data-testid="stVerticalBlockBorderWrapper"] {
+                border-radius: 20px !important;
+                transition: all 0.3s ease;
+                background-color: #ffffff; /* Ubah ke #1e1e1e jika ingin tema gelap */
+                height: 100% !important; /* Mendorong card agar tingginya 100% */
+            }
+            
+            /* Memaksa elemen di dalam kolom Streamlit untuk menyamakan tinggi maksimal */
+            div[data-testid="column"] > div {
+                height: 100% !important;
+            }
+
+            div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+                border-color: #d1d5db !important;
+            }
+            /* Sembunyikan garis divider default agar lebih bersih */
+            hr {
+                margin: 1.5em 0;
+                border-color: transparent; 
+            }
+        </style>
+        """, unsafe_allow_html=True)
 
 # ==========================================
 # BENTO GRID 4: Kontak (Bawah - Penuh)
