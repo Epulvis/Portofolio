@@ -94,7 +94,7 @@ with col_proj1:
         img_path_1 = "assets/project1.jpg"
         if os.path.exists(img_path_1):
             image1 = Image.open(img_path_1)
-            st.image(image1, use_container_width=True, style={"border-radius": "10px"})
+            st.image(image1, use_container_width=True)
         else:
             st.info("[Tempat Gambar: Masukkan project1.jpg di folder assets/]")
 
