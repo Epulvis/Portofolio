@@ -101,17 +101,19 @@ with col_proj1:
 
         st.markdown("""
         **Siklus SDLC:**
-        *   **Requirement:** Menggali permasalahan operasional pemilik *gym* (skala tunggal hingga multi-cabang/multi-owner) untuk merumuskan spesifikasi fitur registrasi dan *onboarding* yang efisien.
-        *   **Design:** Mengimplementasikan rancangan UI/UX ke dalam bentuk website. Berfokus pada pemberian *UI feedback* yang jelas (seperti *error handling* pada form) untuk menjaga pengalaman pengguna tetap optimal.
+        *   **Requirement:** Menggali permasalahan operasional pemilik *gym* (skala tunggal hingga multi-cabang/multi-owner) untuk merumuskan spesifikasi fitur yang membantu pemilik *gym* dalam mengelola operasional mereka.
+        *   **Design:** Mengimplementasikan rancangan UI/UX ke dalam bentuk website dan mobile. Berfokus pada pemberian *UI feedback* yang jelas (seperti *error handling* pada form) untuk menjaga pengalaman pengguna tetap optimal.
         *   **Implementation:** Membangun antarmuka Register yang mengintegrasikan otentikasi OAuth menggunakan **Vue.js** (Web) dan **Flutter** (Mobile), serta memastikan desain **responsif** di semua resolusi.
         *   **Testing:** Melakukan pengujian tampilan (*Black Box Testing*) pada berbagai perangkat untuk memvalidasi fungsionalitas dan performa antarmuka.
         *   **Deployment:** Menggunakan **Git/GitHub** untuk manajemen kode, serta mengatur alur integrasi CI/CD untuk otomatisasi pengujian (*Automated Testing*).
         """)
 
 # Proyek 2
+# Proyek 2
 with col_proj2:
     with st.container(border=True):
-        st.subheader("🤝 Platform Koperasi UMKM")
+        st.subheader("📊 Sistem Manajemen Organisasi & Keuangan PMI")
+        st.markdown("**Role:** Front-End Developer | **Stack:** Laravel, SQL, Git")
         
         # Render Gambar
         img_path_2 = "assets/project2.jpg"
@@ -119,15 +121,15 @@ with col_proj2:
             image2 = Image.open(img_path_2)
             st.image(image2, use_container_width=True)
         else:
-            st.info("[Tempat Gambar: Masukkan project2.jpg di folder assets/]")
+            st.info("[Tempat Gambar: Masukkan gambar UI Sistem Organisasi di folder assets/]")
 
         st.markdown("""
         **Siklus SDLC:**
-        *   **Requirement:** Perencanaan strategis digitalisasi pencatatan untuk sektor UMKM.
-        *   **Design:** Merancang arsitektur navigasi mobile dan alur pengguna.
-        *   **Implementation:** Pengembangan *cross-platform* dengan **Flutter** & **Dart**, integrasi API **Laravel**.
-        *   **Testing:** Evaluasi langsung (UAT) dengan perwakilan tim/pengguna akhir.
-        *   **Deployment:** Persiapan rilis aplikasi dan manajemen *task tracking*.
+        *   **Requirement:** Menganalisis alur kerja untuk merancang strategi digitalisasi, mengubah proses pencatatan manual berbasis Excel (manajemen keuangan dan basis data) menjadi platform web terpusat.
+        *   **Design:** Menerapkan prinsip *Responsive Web Design* untuk mengubah struktur data Excel menjadi antarmuka UI/UX yang modern, bersih, dan mudah digunakan oleh anggota pengurus.
+        *   **Implementation:** Mengembangkan tampilan website menggunakan struktur HTML, CSS, dan JavaScript di dalam ekosistem **Laravel** (Blade template). Berkolaborasi erat antara sisi *front-end* dan logika *back-end* (SQL) untuk integrasi data yang mulus.
+        *   **Testing:** Menulis skrip *Automated Testing* dan melakukan pengujian tampilan secara komprehensif pada berbagai perangkat (mobile, tablet, desktop) untuk memastikan performa dan pengalaman pengguna tetap optimal.
+        *   **Deployment:** Menggunakan **Git/GitHub** untuk kolaborasi dan *version control*, serta melakukan *deployment* mandiri ke server *production* di **Hostinger**.
         """)
 
 # ==========================================
