@@ -36,7 +36,6 @@ st.markdown("""
         flex-grow: 1 !important; 
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important;
     }
 
     div[data-testid="stVerticalBlockBorderWrapper"]:hover {
