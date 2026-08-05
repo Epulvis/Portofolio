@@ -52,10 +52,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Mochammad Syaifuddin Zuhri")
-st.markdown("### Front-End Developer")
-st.markdown("---")
-
 # ==========================================
 # BENTO GRID 1: Profil & Intro (Atas)
 # ==========================================
