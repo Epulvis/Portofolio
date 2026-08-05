@@ -99,7 +99,7 @@ with col_img:
     
     if os.path.exists(profile_img_path):
         img_base64 = get_img_as_base64(profile_img_path)
-        
+        st.markdown("<br>", unsafe_allow_html=True)
         # HTML & CSS untuk membuat Blob Shape dengan animasi
         st.markdown(f"""
         <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding-top: 10px;">
