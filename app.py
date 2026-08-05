@@ -91,12 +91,12 @@ with col_proj1:
         st.subheader("📈 Finwise - Financial App")
         
         # Render Gambar
-        img_path_1 = "assets/project1.png"
+        img_path_1 = "assets/project1.jpg"
         if os.path.exists(img_path_1):
             image1 = Image.open(img_path_1)
             st.image(image1, use_container_width=True, style={"border-radius": "10px"})
         else:
-            st.info("[Tempat Gambar: Masukkan project1.png di folder assets/]")
+            st.info("[Tempat Gambar: Masukkan project1.jpg di folder assets/]")
 
         st.markdown("""
         **Siklus SDLC:**
