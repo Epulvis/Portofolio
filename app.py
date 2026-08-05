@@ -59,43 +59,35 @@ st.markdown("---")
 # ==========================================
 # BENTO GRID 1: Profil & Intro (Atas)
 # ==========================================
-col_hero, col_stats = st.columns([2.5, 1])
-
-with col_hero:
-    st.markdown("""
-    <div style="
-        background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-        padding: 40px 35px;
-        border-radius: 20px;
-        color: white;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
-        transition: transform 0.3s ease;
-    ">
-        <h1 style="color: white; margin-bottom: 5px; font-size: 2.8rem; font-weight: 800;">Hai! Saya Syaifuddin 👋</h1>
-        <h3 style="color: #E0E7FF; margin-top: 0; font-weight: 500; font-size: 1.4rem;">Front-End Web & Mobile Developer</h3>
-        <p style="margin-top: 15px; font-size: 1.1rem; line-height: 1.7; color: #F3F4F6;">
-            Saya bersemangat dalam menerjemahkan rancangan desain kolaboratif dari <b>Figma/FigJam</b> menjadi antarmuka yang <b>responsif</b> dan berkinerja tinggi. 
-            Terbiasa mengawal siklus SDLC dan siap berkolaborasi erat menjembatani visi antara tim UI/UX dan logika Back-End.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-with col_stats:
-    # Kotak Atas: Menyoroti Kualifikasi Utama (Mahasiswa Aktif)
-    with st.container(border=True):
-        st.markdown("<h4 style='text-align: center; margin-bottom: 0px; font-size: 1.1rem;'>🎓 Status Akademik</h4>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: #10B981; font-weight: 800; font-size: 1.3rem; margin-top: 5px; margin-bottom: 0;'>🟢 Mahasiswa Aktif</p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; font-size: 0.85rem; margin-top: 0px; color: #6B7280;'>Mencari Peluang Magang</p>", unsafe_allow_html=True)
-
-    # Kotak Bawah: Quick Facts
-    with st.container(border=True):
-        st.markdown("📍 **Lokasi:** Indonesia")
-        st.markdown("🤝 **Kolaborasi:** UI/UX & Backend")
-        st.markdown("⚡ **Fokus:** *Responsive Web Design*")
+st.markdown("""
+<div style="padding: 30px 10px 40px 10px;">
+    <p style="color: #A78BFA; font-size: 1.2rem; font-weight: 600; margin-bottom: 0px;">
+        Halo Semua 👋, Saya
+    </p>
+    <h1 style="font-size: 4rem; font-weight: 800; line-height: 1.1; margin-top: 5px; margin-bottom: 10px; color: #F8FAFC;">
+        Mochammad Syaifuddin Zuhri
+    </h1>
+    <p style="font-size: 1.4rem; font-weight: 400; color: #9CA3AF; margin-top: 0px; margin-bottom: 25px;">
+        Mahasiswa Aktif & Front-End Developer | <span style="text-decoration: underline; color: #E5E7EB;">Mencari Peluang Magang</span>
+    </p>
+    <p style="font-size: 1.1rem; color: #D1D5DB; max-width: 700px; line-height: 1.6; margin-bottom: 35px;">
+        Portofolio ini menampilkan proyek dan kontribusi saya dalam menerjemahkan rancangan desain UI/UX menjadi antarmuka website yang responsif, berkinerja tinggi, dan ramah pengguna.
+    </p>
+    <a href="mailto:emailanda@domain.com" style="
+        display: inline-block; 
+        background-color: #7C3AED; 
+        color: #FFFFFF; 
+        padding: 12px 30px; 
+        border-radius: 8px; 
+        text-decoration: none; 
+        font-weight: 600; 
+        font-size: 1.05rem;
+        transition: background-color 0.3s ease;
+    " onmouseover="this.style.backgroundColor='#6D28D9'" onmouseout="this.style.backgroundColor='#7C3AED'">
+        Hubungi Saya
+    </a>
+</div>
+""", unsafe_allow_html=True)
 
 # ==========================================
 # BENTO GRID 2: Tech Stack (Tengah - 3 Kolom)
