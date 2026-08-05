@@ -128,6 +128,7 @@ with col_proj1:
         *   **Testing:** Melakukan pengujian tampilan (*Black Box Testing*) pada berbagai perangkat untuk memvalidasi fungsionalitas dan performa antarmuka.
         *   **Deployment:** Menggunakan **Git/GitHub** untuk manajemen kode, serta mengatur alur integrasi CI/CD untuk otomatisasi pengujian (*Automated Testing*).
         """)
+        st.markdown("<br>", unsafe_allow_html=True)
 
 # Proyek 2
 with col_proj2:
