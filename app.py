@@ -2,97 +2,145 @@ import streamlit as st
 from PIL import Image
 import os
 
-# Konfigurasi Halaman
+# Konfigurasi Halaman (Wide layout penting untuk Bento Box)
 st.set_page_config(
     page_title="Portofolio | Mochammad Syaifuddin Zuhri",
-    page_icon="💻",
+    page_icon="🍱",
     layout="wide"
 )
 
-# Header Section
+# Injeksi CSS Khusus untuk memperkuat gaya Bento Box
+st.markdown("""
+<style>
+    /* Mengubah border container Streamlit menjadi gaya Bento (sudut membulat & bayangan) */
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+        border-radius: 20px !important;
+        transition: all 0.3s ease;
+        background-color: #ffffff; /* Ubah ke #1e1e1e jika ingin tema gelap */
+    }
+    div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+        border-color: #d1d5db !important;
+    }
+    /* Sembunyikan garis divider default agar lebih bersih */
+    hr {
+        margin: 1.5em 0;
+        border-color: transparent; 
+    }
+</style>
+""", unsafe_allow_html=True)
+
 st.title("Mochammad Syaifuddin Zuhri")
-st.subheader("Front-End Developer")
-st.markdown("""
-Saya adalah seorang Front-End Developer yang berfokus pada pembuatan antarmuka modern, responsif, dan interaktif. 
-Berpengalaman dalam mengelola seluruh siklus pengembangan perangkat lunak (SDLC) dari tahap desain hingga deployment.
-""")
+st.markdown("### Front-End Developer")
+st.markdown("---")
 
-st.divider()
+# ==========================================
+# BENTO GRID 1: Profil & Intro (Atas)
+# ==========================================
+with st.container(border=True):
+    col_prof1, col_prof2 = st.columns([2, 1])
+    with col_prof1:
+        st.subheader("👋 Halo!")
+        st.write("""
+        Saya berfokus pada pembuatan antarmuka modern, responsif, dan interaktif. 
+        Berpengalaman dalam mengelola seluruh siklus pengembangan perangkat lunak (SDLC) dari tahap desain UI/UX hingga deployment ke production.
+        """)
+    with col_prof2:
+        st.write("📍 **Lokasi:** Indonesia")
+        st.write("💼 **Status:** Open to Work")
+        st.write("🌐 **Fokus:** Web & Mobile App")
 
-# Tech Stack Section
-st.header("🛠️ Tech Stack & Languages")
-col1, col2, col3 = st.columns(3)
+# ==========================================
+# BENTO GRID 2: Tech Stack (Tengah - 3 Kolom)
+# ==========================================
+st.markdown("<br>", unsafe_allow_html=True)
+col_tech1, col_tech2, col_tech3 = st.columns(3)
 
-with col1:
-    st.markdown("**Frameworks & Tools:**")
-    st.write("✔️ Next.js")
-    st.write("✔️ Vue.js")
-    st.write("✔️ Vite.js")
+with col_tech1:
+    with st.container(border=True):
+        st.markdown("#### 🎨 Frameworks & Tools")
+        st.write("✨ **Next.js**")
+        st.write("✨ **Vue.js**")
+        st.write("✨ **Vite.js**")
 
-with col2:
-    st.markdown("**Mobile & Backend:**")
-    st.write("✔️ Flutter")
-    st.write("✔️ Laravel")
+with col_tech2:
+    with st.container(border=True):
+        st.markdown("#### 📱 Mobile & Backend")
+        st.write("⚡ **Flutter**")
+        st.write("⚡ **Laravel**")
+        st.write("⚡ **REST API**")
 
-with col3:
-    st.markdown("**Programming Languages:**")
-    st.write("✔️ TypeScript")
-    st.write("✔️ JavaScript")
-    st.write("✔️ Dart")
+with col_tech3:
+    with st.container(border=True):
+        st.markdown("#### 💻 Languages")
+        st.write("🚀 **TypeScript**")
+        st.write("🚀 **JavaScript**")
+        st.write("🚀 **Dart**")
 
-st.divider()
+# ==========================================
+# BENTO GRID 3: Proyek & Pengalaman (Bawah - 2 Kolom)
+# ==========================================
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("### 📂 Studi Kasus Proyek (SDLC)")
+col_proj1, col_proj2 = st.columns(2)
 
-# Projects / Experience Section
-st.header("📂 Pengalaman & Proyek (SDLC Case Studies)")
+# Proyek 1
+with col_proj1:
+    with st.container(border=True):
+        st.subheader("📈 Finwise - Financial App")
+        
+        # Render Gambar
+        img_path_1 = "assets/project1.png"
+        if os.path.exists(img_path_1):
+            image1 = Image.open(img_path_1)
+            st.image(image1, use_container_width=True, style={"border-radius": "10px"})
+        else:
+            st.info("[Tempat Gambar: Masukkan project1.png di folder assets/]")
 
-# Proyek 1: Aplikasi Manajemen Keuangan
-st.subheader("1. Finwise - Financial Management App")
+        st.markdown("""
+        **Siklus SDLC:**
+        *   **Requirement:** Analisis kebutuhan fitur pelacakan anggaran pengguna.
+        *   **Design:** Konversi desain kolaboratif dari Figma/FigJam ke komponen berbasis *Atomic Design*.
+        *   **Implementation:** Membangun UI dengan **Next.js** & **TypeScript**.
+        *   **Testing:** Pengujian responsivitas dan validasi fungsional.
+        *   **Deployment:** Hosting aplikasi melalui **Vercel**.
+        """)
 
-# Image rendering (Pastikan gambar ada di folder assets)
-img_path_1 = "assets/project1.png"
-if os.path.exists(img_path_1):
-    image1 = Image.open(img_path_1)
-    st.image(image1, caption="Tampilan Dashboard Finwise", use_container_width=True)
-else:
-    st.info("Tambahkan gambar 'project1.png' di dalam folder 'assets/' untuk menampilkan pratinjau proyek.")
+# Proyek 2
+with col_proj2:
+    with st.container(border=True):
+        st.subheader("🤝 Platform Koperasi UMKM")
+        
+        # Render Gambar
+        img_path_2 = "assets/project2.png"
+        if os.path.exists(img_path_2):
+            image2 = Image.open(img_path_2)
+            st.image(image2, use_container_width=True)
+        else:
+            st.info("[Tempat Gambar: Masukkan project2.png di folder assets/]")
 
-st.markdown("""
-**Siklus SDLC:**
-*   **Requirement Analysis:** Berkolaborasi dengan pemangku kepentingan untuk mengidentifikasi kebutuhan fitur pelacakan anggaran dan manajemen pengeluaran harian.
-*   **Design:** Mengonversi prototipe UI/UX interaktif dari Figma ke dalam desain komponen berbasis Atomic Design.
-*   **Implementation:** Membangun antarmuka menggunakan **Next.js** dan **TypeScript** untuk performa tinggi, serta mengintegrasikan state management.
-*   **Testing:** Melakukan pengujian fungsional pada komponen UI dan memastikan responsivitas di berbagai perangkat (Mobile & Desktop).
-*   **Deployment & Maintenance:** Melakukan deployment aplikasi ke **Vercel** dan memantau analitik performa web secara berkala.
-""")
+        st.markdown("""
+        **Siklus SDLC:**
+        *   **Requirement:** Perencanaan strategis digitalisasi pencatatan untuk sektor UMKM.
+        *   **Design:** Merancang arsitektur navigasi mobile dan alur pengguna.
+        *   **Implementation:** Pengembangan *cross-platform* dengan **Flutter** & **Dart**, integrasi API **Laravel**.
+        *   **Testing:** Evaluasi langsung (UAT) dengan perwakilan tim/pengguna akhir.
+        *   **Deployment:** Persiapan rilis aplikasi dan manajemen *task tracking*.
+        """)
 
-st.write("---")
-
-# Proyek 2: Inisiatif Koperasi UMKM
-st.subheader("2. Platform Digital Koperasi UMKM")
-
-img_path_2 = "assets/project2.png"
-if os.path.exists(img_path_2):
-    image2 = Image.open(img_path_2)
-    st.image(image2, caption="Tampilan Aplikasi Mobile Koperasi UMKM", use_container_width=True)
-else:
-    st.info("Tambahkan gambar 'project2.png' di dalam folder 'assets/' untuk menampilkan pratinjau proyek.")
-
-st.markdown("""
-**Siklus SDLC:**
-*   **Requirement Analysis:** Menganalisis kebutuhan digitalisasi pencatatan transaksi untuk koperasi skala kecil dan menengah.
-*   **Design:** Merancang arsitektur navigasi aplikasi mobile dan alur transaksi pengguna.
-*   **Implementation:** Mengembangkan aplikasi mobile cross-platform menggunakan **Flutter** dan **Dart**, berkolaborasi dengan tim backend **Laravel** melalui REST API.
-*   **Testing:** Melakukan UAT (User Acceptance Testing) secara langsung dengan para pelaku UMKM untuk memvalidasi kemudahan penggunaan.
-*   **Deployment & Maintenance:** Mengunggah versi rilis ke App Store / Play Store dan merilis patch pembaruan berdasarkan feedback pengguna.
-""")
-
-st.divider()
-
-# Footer / Kontak
-st.header("📫 Hubungi Saya")
-st.markdown("""
-Jika Anda tertarik untuk berkolaborasi atau mendiskusikan peluang proyek, silakan hubungi saya melalui:
-*   **GitHub:** [github.com/username-anda](https://github.com/)
-*   **LinkedIn:** [linkedin.com/in/username-anda](https://linkedin.com/)
-*   **Email:** email.anda@domain.com
-""")
+# ==========================================
+# BENTO GRID 4: Kontak (Bawah - Penuh)
+# ==========================================
+st.markdown("<br>", unsafe_allow_html=True)
+with st.container(border=True):
+    st.markdown("### 📫 Mari Berkolaborasi!")
+    st.write("Jika Anda mencari kolaborator UI/UX atau Front-End Developer untuk proyek Anda, jangan ragu untuk menghubungi saya:")
+    
+    col_contact1, col_contact2, col_contact3 = st.columns(3)
+    with col_contact1:
+        st.markdown("[**GitHub Profile** ↗](https://github.com/Epulvis/)")
+    with col_contact2:
+        st.markdown("[**LinkedIn Profile** ↗](https://www.linkedin.com/in/mochammadsyaifuddinzuhri/)")
+    with col_contact3:
+        st.markdown("[**Email Saya** ↗](mailto:zuhrisaifuddin010@gmail.com)")
