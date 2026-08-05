@@ -88,7 +88,8 @@ col_proj1, col_proj2 = st.columns(2)
 # Proyek 1
 with col_proj1:
     with st.container(border=True):
-        st.subheader("📈 Finwise - Financial App")
+        st.subheader("🏋️ Chain Fit - Gym Management Platform")
+        st.markdown("**Role:** Front-End Developer | **Stack:** Vue.js, Flutter, Git")
         
         # Render Gambar
         img_path_1 = "assets/project1.jpg"
@@ -96,15 +97,15 @@ with col_proj1:
             image1 = Image.open(img_path_1)
             st.image(image1, use_container_width=True)
         else:
-            st.info("[Tempat Gambar: Masukkan project1.jpg di folder assets/]")
+            st.info("[Tempat Gambar: Masukkan gambar UI Chain Fit di folder assets/]")
 
         st.markdown("""
         **Siklus SDLC:**
-        *   **Requirement:** Analisis kebutuhan fitur pelacakan anggaran pengguna.
-        *   **Design:** Konversi desain kolaboratif dari Figma/FigJam ke komponen berbasis *Atomic Design*.
-        *   **Implementation:** Membangun UI dengan **Next.js** & **TypeScript**.
-        *   **Testing:** Pengujian responsivitas dan validasi fungsional.
-        *   **Deployment:** Hosting aplikasi melalui **Vercel**.
+        *   **Requirement:** Menggali permasalahan operasional pemilik *gym* (skala tunggal hingga multi-cabang/multi-owner) untuk merumuskan spesifikasi fitur registrasi dan *onboarding* yang efisien.
+        *   **Design:** Mengimplementasikan rancangan UI/UX ke dalam bentuk website. Berfokus pada pemberian *UI feedback* yang jelas (seperti *error handling* pada form) untuk menjaga pengalaman pengguna tetap optimal.
+        *   **Implementation:** Membangun antarmuka Register yang mengintegrasikan otentikasi OAuth menggunakan **Vue.js** (Web) dan **Flutter** (Mobile), serta memastikan desain **responsif** di semua resolusi.
+        *   **Testing:** Melakukan pengujian tampilan (*Black Box Testing*) pada berbagai perangkat untuk memvalidasi fungsionalitas dan performa antarmuka.
+        *   **Deployment:** Menggunakan **Git/GitHub** untuk manajemen kode, serta mengatur alur integrasi CI/CD untuk otomatisasi pengujian (*Automated Testing*).
         """)
 
 # Proyek 2
