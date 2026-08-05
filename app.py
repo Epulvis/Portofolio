@@ -100,6 +100,7 @@ with col_img:
     if os.path.exists(profile_img_path):
         img_base64 = get_img_as_base64(profile_img_path)
         st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
         # HTML & CSS untuk membuat Blob Shape dengan animasi
         st.markdown(f"""
         <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding-top: 10px;">
@@ -108,6 +109,7 @@ with col_img:
                 max-width: 320px;
                 height: 320px;
                 object-fit: cover;
+                object-position: top;
                 box-shadow: 0 15px 35px rgba(124, 58, 237, 0.15);
                 border: 2px solid #374151;
                 /* Ini yang membuat bentuknya jadi tidak beraturan (Blob) */
