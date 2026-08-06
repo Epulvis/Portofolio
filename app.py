@@ -77,7 +77,7 @@ with col_text:
         <p style="font-size: 1.1rem; color: #D1D5DB; max-width: 90%; line-height: 1.6; margin-bottom: 35px;">
             Portofolio ini menampilkan proyek dan kontribusi saya dalam menerjemahkan rancangan desain UI/UX menjadi antarmuka website yang responsif, berkinerja tinggi, dan ramah pengguna.
         </p>
-        <a href="mailto:emailanda@domain.com" style="
+        <a href="wa.me/6287763995460" style="
             display: inline-block; 
             background-color: #7C3AED; 
             color: #FFFFFF; 
